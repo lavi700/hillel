@@ -1,0 +1,37 @@
+.clear-cart-button{
+    width: 120px;
+    height: 40px;
+    background-color: rgba(212, 191, 106, 1);
+    border-radius: 5px;
+    border: 1px solid rgba(212, 191, 106, 1);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.clear-cart-button:hover{
+    background-color: rgba(212, 191, 106, 0.9);
+}
+
+.view-cart-button{
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(212, 191, 106, 1);
+    color: rgba(212, 191, 106, 1);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-cart-button:hover{
+    color: rgba(212, 191, 106, 0.9);
+    border-color: rgba(212, 191, 106, 0.7);
+}

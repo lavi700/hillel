@@ -1,0 +1,41 @@
+.main-container{
+    width: 78%;
+    height: 84%;
+    opacity: 0.9;
+    font-family: 'Raleway';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titles-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .title{
+} */
+
+.subtitle{
+    color: rgb(55, 55, 55);
+    max-width: 82%;
+    word-wrap: break-word;
+}
+
+.section-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title{
+    text-decoration: underline;
+}
+
+.section-contant{
+    max-width: 72%;
+    word-wrap: break-word;
+}

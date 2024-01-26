@@ -1,0 +1,9 @@
+.navbar-link{
+    color: rgb(212, 191, 106);
+    font-family: Raleway;
+    text-decoration: none;
+}
+
+.navbar-link:hover{
+    text-decoration: underline;
+}
