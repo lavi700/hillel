@@ -1,0 +1,19 @@
+.add-to-cart {
+    width: 95px;
+    height: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(to left, rgb(228, 122, 73), rgb(153, 44, 44))
+}
+
+.product-title{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 6px;
+}
+
+.product-desc{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 6px;
+    color: rgb(50,50,50);
+
+}
