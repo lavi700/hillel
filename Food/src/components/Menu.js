@@ -77,16 +77,19 @@ export default function Menu() {
     <>
       <CssBaseline />
       <NavBar background='white' boxShadow={1} />
-      <Box sx={{ marginTop: '75px', paddingBottom: '70px' }}>
-        <div style={{ display: 'flex', width: '30%', gap: '5px', marginLeft: '15px' }}>
-          <input onChange={handleInputChange} value={inputFilter} placeholder="Search Here" style={{borderRadius: 5, height: '28px', borderWidth: '1px', borderColor: 'rgb(180,180,180)'}}/>
-          <SelectFilter selector={foodTypeFilter} function={handleFoodType} label='' menuItemList={['all', 'meat', 'fish', 'vegi']}/>
-          <SelectFilter selector={priceFilter} function={handlePrice} label='' menuItemList={['No Filter', 'Lowest To Highest', 'Highest To Lowest']}/>
-          <Button onClick={clearFilters} sx={{width: '100%', height: '28px', fontSize: '14px'}}>Reset</Button>
+      <div style={{ marginTop: '75px', paddingBottom: '70px',display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', paddingLeft: '73px' }}>
+        <div style={{display: 'flex', width: '100%', alignItems:'center', justifyContent: 'left', flexWrap: 'wrap'}}>
+          <div style={{ display: 'flex', width: '30%', gap: '5px', marginLeft: '15px', marginRight: '6000px' }}>
+            <input onChange={handleInputChange} value={inputFilter} placeholder="Search Here" style={{borderRadius: 5, height: '28px', borderWidth: '1px', borderColor: 'rgb(180,180,180)'}}/>
+            <SelectFilter selector={foodTypeFilter} function={handleFoodType} label='' menuItemList={['all', 'meat', 'fish', 'vegi']}/>
+            <SelectFilter selector={priceFilter} function={handlePrice} label='' menuItemList={['No Filter', 'Lowest To Highest', 'Highest To Lowest']}/>
+            <Button onClick={clearFilters} sx={{width: '100%', height: '28px', fontSize: '14px', color:'rgb(50,50,50)'}}>Reset</Button>
+          </div>
+          {products.length > 0?products:<h3>There Is No Such Item - try to reset the filters</h3>}
         </div>
-        {products.length > 0?products:<h3>There Is No Such Item - try to reset the filters</h3>}
         
-      </Box>
+        
+      </div>
       <MenuBottomNavigation />
     </>
   );
