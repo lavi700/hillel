@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import About from "./components/About";
 import CartPage from "./components/Cart/CartPage";
 import GalleryPage from "./components/GalleryPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 export function App(){

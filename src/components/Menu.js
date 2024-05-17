@@ -12,32 +12,29 @@ import React, { useEffect, useState } from "react";
 import { handlePrice, handleFoodType } from "../state/FilterSlice";
 import SelectFilter from "./SelectFilter";
 
-
 export default function Menu() {
-  const dispatch = useDispatch()  
+  const dispatch = useDispatch();
 
   const priceFilter = useSelector((state) => state.filter.price);
   const foodTypeFilter = useSelector((state) => state.filter.food_type);
   const products_data_global = useSelector((state) => state.product.products);
 
-  const [originalSortedList, setOriginalSortedList] = useState([]);
   const [inputFilter, setInputFilter] = useState('');
   const [filteredProductsList, setFilteredProductsList] = useState([]);
 
   useEffect(() => {
-    let sortedList = [];
     const filteredList = products_data_global.filter(
       (product) =>
         product.filter === foodTypeFilter || foodTypeFilter === 'all'
     );
+
+    let sortedList = [...filteredList];
+
     if (priceFilter === 'Lowest To Highest') {
-      sortedList = filteredList.slice().sort((a, b) => a.price - b.price);
+      sortedList.sort((a, b) => a.price - b.price);
     } else if (priceFilter === 'Highest To Lowest') {
-      sortedList = filteredList.slice().sort((a, b) => b.price - a.price);
-    } else {
-      sortedList = filteredList;
+      sortedList.sort((a, b) => b.price - a.price);
     }
-    setOriginalSortedList(sortedList);
 
     // Apply both filters
     const combinedFilteredList = applyInputFilter(sortedList, inputFilter);
@@ -46,14 +43,12 @@ export default function Menu() {
 
   function handleInputChange(event) {
     setInputFilter(event.target.value);
-    
   }
 
-  function clearFilters(){
-    setInputFilter('')
-    dispatch(handleFoodType('all'))
-    dispatch(handlePrice('No Filter'))
-
+  function clearFilters() {
+    setInputFilter('');
+    dispatch(handleFoodType('all'));
+    dispatch(handlePrice('No Filter'));
   }
 
   const applyInputFilter = (list, input) => {
@@ -77,18 +72,17 @@ export default function Menu() {
     <>
       <CssBaseline />
       <NavBar background='white' boxShadow={1} />
-      <div style={{ marginTop: '75px', paddingBottom: '70px',display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', paddingLeft: '73px' }}>
+      <div style={{ display: 'flex', width: '50%', gap: '5px', marginLeft: '15px', marginTop: '75px', paddingBottom: '8px' }}>
+        <input onChange={handleInputChange} value={inputFilter} placeholder="Search Here" style={{borderRadius: 5, height: '28px', borderWidth: '1px', borderColor: 'rgb(180,180,180)'}}/>
+        <SelectFilter selector={foodTypeFilter} function={handleFoodType} label='' menuItemList={['all', 'meat', 'fish', 'vegi']}/>
+        <SelectFilter selector={priceFilter} function={handlePrice} label='' menuItemList={['No Filter', 'Lowest To Highest', 'Highest To Lowest']}/>
+        <Button onClick={clearFilters} sx={{width: '70px', height: '28px', fontSize: '14px', color:'rgb(50,50,50)'}}>Reset</Button>
+      </div>
+      <div style={{ paddingBottom: '70px',display: 'flex', justifyContent: 'center', width: '100%', paddingLeft: '73px', overflowY: 'auto',
+  maxHeight: 'calc(100vh - 168px)'}}>
         <div style={{display: 'flex', width: '100%', alignItems:'center', justifyContent: 'left', flexWrap: 'wrap'}}>
-          <div style={{ display: 'flex', width: '30%', gap: '5px', marginLeft: '15px', marginRight: '6000px' }}>
-            <input onChange={handleInputChange} value={inputFilter} placeholder="Search Here" style={{borderRadius: 5, height: '28px', borderWidth: '1px', borderColor: 'rgb(180,180,180)'}}/>
-            <SelectFilter selector={foodTypeFilter} function={handleFoodType} label='' menuItemList={['all', 'meat', 'fish', 'vegi']}/>
-            <SelectFilter selector={priceFilter} function={handlePrice} label='' menuItemList={['No Filter', 'Lowest To Highest', 'Highest To Lowest']}/>
-            <Button onClick={clearFilters} sx={{width: '100%', height: '28px', fontSize: '14px', color:'rgb(50,50,50)'}}>Reset</Button>
-          </div>
-          {products.length > 0?products:<h3>There Is No Such Item - try to reset the filters</h3>}
+          {products.length > 0 ? products : <h3>There Is No Such Item - try to reset the filters</h3>}
         </div>
-        
-        
       </div>
       <MenuBottomNavigation />
     </>

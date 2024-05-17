@@ -22,7 +22,7 @@ export default function Product(props) {
       >
         <img
           src={`${process.env.PUBLIC_URL}/${props.img}`}
-          style={{ width: "100%", height: "150px", marginRight: "30px" }}
+          style={{ width: "100%", height: "150px", marginRight: "30px", borderTopLeftRadius: 5, borderTopRightRadius:5 }}
         />
         <div
           style={{

@@ -1,0 +1,16 @@
+.message {
+    max-width: 70%;
+    min-width: 100px;
+    min-height: 33px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 7px 20px;
+    text-align: right;
+    overflow-wrap: break-word;
+    flex-shrink: 0;
+    
+  }
+  
+
+  

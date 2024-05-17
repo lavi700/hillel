@@ -45,7 +45,7 @@ export default function GalleryPage(){
 
     const images = images_list.map((img, index) => (
         <>
-        <img src={`${process.env.PUBLIC_URL}/${img}`} style={{width: '30%', borderRadius: 5, cursor: 'pointer', height: '35vh'}}
+        <img src={`${process.env.PUBLIC_URL}/${img}`} style={{width: '30%', borderRadius: 5, cursor: 'pointer', height: '210px'}}
         onClick={() => handleOpenImg(index)}/>
         </>
     ))
@@ -71,7 +71,7 @@ export default function GalleryPage(){
             </IconButton>
         </div>}
         <NavBar background='white' boxShadow={1}/>
-        <div style={{display: 'flex', flexWrap: 'wrap', gap: '15px', alignItems: 'center', justifyContent: 'center', marginTop: '72px'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', gap: '15px', alignItems: 'center', justifyContent: 'center', marginTop: '72px', paddingBottom: '15px', maxHeight: 'calc(100vh - 72px)', overflowY: 'auto',}}>
             {images}
         </div>
         </RootContainer>
