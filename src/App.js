@@ -17,6 +17,7 @@ export function App(){
       <Route path="/about" element={<About />}/>
       <Route path="/contact-us"/>
       <Route path='/cart' element={<CartPage />}/>
+      <Route path='check' element={<ProtectedRoute><h1>check</h1></ProtectedRoute>}/>
     </Routes>
     </>
     )

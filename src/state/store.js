@@ -7,6 +7,7 @@ import contactReducer from './ContactSlice'
 import filterReducer from './FilterSlice'
 import chatReducer from './ChatSlice'
 
+
 const persistConfig = {
     key: 'root',
     storage,

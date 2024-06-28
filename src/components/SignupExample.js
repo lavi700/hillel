@@ -43,16 +43,17 @@ export default function SignupExample() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('https://hbgyken5c2.execute-api.eu-north-1.amazonaws.com/hillel', {
-              action: 'login',
-              email: formData.email,
-              password: formData.password
-            });
+          const response = await axios.post('https://hbgyken5c2.execute-api.eu-north-1.amazonaws.com/hillel', {
+            action: 'login',
+            email: formData.email,
+            password: formData.password
+          }, { withCredentials: true });
+          
             setResponseMessage(response.data);
 
-            if (response.data === 'Login successful'){
-              // navigate("/protected-route-example")
-            }
+            // if (response.data === 'Login successful'){
+            //   navigate("/check")
+            // }
           } catch (error) {
             setResponseMessage(error.response.data);
           }
@@ -75,6 +76,23 @@ export default function SignupExample() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("https://hbgyken5c2.execute-api.eu-north-1.amazonaws.com/hillel", {
+        action: 'logout',
+      }, {
+        withCredentials: true,
+      });
+  
+      // Assuming response.data contains the data you need
+      setResponseMessage(response.data);
+  
+    } catch (error) {
+      setResponseMessage(error.response.data);
+    }
+  };
+  
+
   return (
     <div>
       <h2>Sign Up</h2>
@@ -89,6 +107,7 @@ export default function SignupExample() {
       <input placeholder='confirmation' value={confirmationCode} onChange={handleConfirmationChange} maxLength={6}/>
       <button onClick={()=>handleSendConfirmation(formData.email, confirmationCode)}>Send</button> 
       <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }

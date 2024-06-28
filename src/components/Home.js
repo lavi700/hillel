@@ -44,7 +44,7 @@ export default function Home(){
       <Button onClick={()=>dispatch(handleOpenChat())}>Open Chat</Button>
       {open_chat && <ChatBox />}   
       <Lottie animationData={phoneAnimationData} style={{ height: '200px', width: '200px' }} />  
-      <SignupExample /> 
+      {/* <SignupExample />  */}
     </RootContainer>
     )
 }
